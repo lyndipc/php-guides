@@ -1,0 +1,351 @@
+---
+title: What is a Multidimensional Array?
+date: '2020-12-21'
+tags: ['arrays', 'sorting', 'data structures']
+draft: false
+summary: 'A comprehensive guide on working with multidimensional arrays in PHP.'
+---
+
+# What is a multidimensional array?
+
+In PHP, multidimensional arrays are arrays that contain other arrays as their elements. They provide a way to organize and store complex data structures, such as matrices, tables, or hierarchical data.
+
+# Creating a multidimensional array
+
+Creating multidimensional arrays involves defining an array that contains multiple sub-arrays. Each sub-array represents a row or a set of related elements within the multidimensional array. The elements within the sub-arrays can be of any valid PHP data type.
+
+## Syntax
+
+```php
+array(
+    array(
+        key => value,
+        key => value
+    ),
+    array(
+        key => value,
+        key => value
+    )
+);
+
+// or
+
+array(
+    [key => value, key => value],
+    [key => value, key => value]
+);
+```
+
+## Example
+
+Suppose we want to create an array that represents a two-dimensional grid of numbers:
+
+```php
+$grid = array(
+    array(1, 2, 3),
+    array(4, 5, 6),
+    array(7, 8, 9)
+);
+```
+
+In this case, `$grid` is a multidimensional array with three sub-arrays, each representing a row in the grid. The elements within the sub-arrays are integers, 1 through 9.
+
+# Creating dynamic multidimensional arrays
+
+While the above example demonstrates creating a multidimensional array with fixed values, you can also create multidimensional arrays dynamically by using loops or conditions.
+
+## Example
+
+For instance, in the snippet below we're creating a multidimensional array of multiplication tables by looping through the rows and columns and assigning the product of the row and column numbers to each element of the array:
+
+```php
+$table = array();
+
+for ($i = 1; $i <= 10; $i++) {
+    for ($j = 1; $j <= 10; $j++) {
+        $table[$i][$j] = $i * $j;
+    }
+}
+```
+
+The elements of the `$table` array are created dynamically using nested for loops. This generates a 10x10 multiplication table, where each element of the array represents the product of the corresponding row and column numbers.
+
+# Accessing elements in a multidimensional array
+
+In order to perform operations on individual elements, you will need to access them first. In PHP you can access elements in a multidimensional array by using the indices to navigate through the dimensions and retrieve the desired values.
+
+## Syntax
+
+```php
+$array[index1][index2][index3]...
+```
+
+In this snippet, `$array` represents the multidimensional array, `$index1` corresponds to the index of the outer dimension, and $index2 represents the index of the inner dimension. By using the appropriate indices, you can access an element at a specified position within the array.
+
+## Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of menu items:
+
+```php
+$menu = array(
+    array('pepperoni pizza', 'cheeseburger', 'street tacos'),
+    array('bacon', 'eggs', 'pancakes'),
+    array('salad', 'black bean burger', 'veggie wrap')
+);
+```
+
+To access specific elements of the `$menu` array, we need to use its indices. For instance, to retrieve the value, 'bacon', which is located in the second row (index 1) and the first column (index 0), we would write something like this:
+
+```php
+echo $menu[1][0]; // Output: bacon
+```
+
+# Adding and removing elements to a multidimensional array
+
+You can modify the array's structure and content dynamically by adding and/or removing elements. You can insert new elements at specific positions or remove existing elements from an array based on your requirements. This flexibility empowers you to manipulate multidimensional arrays to suit your application's needs.
+
+## Adding Elements
+
+To add elements to a multidimensional array, you need to determine the desired position and assign a new value to that position.
+
+### Syntax
+
+```php
+$array[index1][index2][index3]... = $value;
+```
+
+By assigning a new value to the specified position, you can add elements to the multidimensional array.
+
+### Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of students:
+
+```php
+$students = array(
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22),
+    array('name' => 'Michael', 'age' => 19)
+);
+$students[2]['grade'] = 'A';
+```
+
+In this example, the element `['grade' => 'A']` is added to the third sub-array (`$students[2]`), creating a new key-value pair within that sub-array.
+
+## Removing Elements
+
+To remove elements from a multidimensional array, you need to determine the position of the element you want to remove and unset it. This will remove the element from the array and shift the remaining elements to fill the gap.
+
+### Syntax
+
+```php
+unset($array[index1][index2][index3]...);
+```
+
+### Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of menu items:
+
+```php
+$menu = array(
+    array('pizza', 'veggie wrap', 'street tacos'),
+    array('bacon', 'eggs', 'pancakes')
+);
+unset($menu[0][1]);
+```
+
+The element at the position `$menu[1][1]` is removed from the array. The remaining elements are shifted to fill the gap, resulting in the following array:
+
+```php
+array(
+    array('pizza', 'street tacos'),
+    array('bacon', 'eggs', 'pancakes')
+);
+```
+
+> **Note:** If you want to remove the element without shifting the remaining elements, you can use the `array_splice()` function. This function will remove the element and re-index the array.
+
+# Looping through a multidimensional array
+
+Working with multidimensional arrays in PHP often involves iterating through their elements to access and process the data. Let's explore different methods for looping through multidimensional arrays to manipulate and extract information.
+
+## Using nested loops
+
+You can loop through a multidimensional array using nested loops. This allows you to access each element of the array and perform operations on them. One common approach is to use nested foreach loops to traverse each level of the multidimensional array. This method allows you to iterate through the primary elements and then access the nested elements within each iteration.
+
+### Syntax
+
+```php
+foreach ($array as $key => $value) {
+    foreach ($value as $subkey => $subvalue) {
+        // code to execute
+    }
+}
+```
+
+### Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of menu items:
+
+```php
+$menu = array(
+    array('pizza', 'veggie wrap', 'street tacos'),
+    array('bacon', 'eggs', 'pancakes')
+);
+```
+
+To loop through the elements of the `$menu` array, we can use nested foreach loops:
+
+```php
+foreach ($menu as $row) {
+    foreach ($row as $item) {
+        echo $item . ', ';
+    }
+}
+```
+
+The inner `foreach` loop iterates through the elements of each sub-array, while the outer `foreach` loop iterates through the sub-arrays themselves. This allows us to access each element of the multidimensional array and perform operations on them. In this case, we're simply printing out the value of each element.
+
+## Using array_walk_recursive()
+
+Another approach to looping through a multidimensional array is to use the `array_walk_recursive()` function.
+
+### Syntax
+
+```php
+array_walk_recursive($array, function($value, $key) {
+    // code to execute
+});
+```
+
+### Example
+
+To loop through the elements of the `$menu` array, we can use the `array_walk_recursive()` function like this:
+
+```php
+array_walk_recursive($menu, function($value, $key) {
+    echo $value . ', ';
+});
+```
+
+This function iterates through each element of the array and executes the callback function on each element. In this case, we're printing out the value of each element.
+
+# Sorting multidimensional arrays
+
+You can sort multidimensional arrays in PHP using the `array_multisort()` function. This function allows you to sort multiple arrays at once, including multidimensional arrays. You can specify the sorting order and the sorting type for each array, as well as the array to use for comparison.
+
+## Syntax
+
+```php
+array_multisort($array1, $sorting_order1, $sorting_type1, $array2, $sorting_order2, $sorting_type2, ...);
+```
+
+In this snippet, `$array1` represents the first array to sort, `$sorting_order1` represents the sorting order for `$array1`, and `$sorting_type1` represents the sorting type for `$array1`. You can also specify additional arrays to sort by adding them to the function call.
+
+## Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of students:
+
+```php
+$students = array(
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22),
+    array('name' => 'Michael', 'age' => 19)
+);
+```
+
+To sort the `$students` array by age in ascending order, we can use the `array_multisort()` function like this:
+
+```php
+array_multisort($students, SORT_ASC, $students);
+```
+
+This function will sort the `$students` array by age in ascending order, resulting in the following array:
+
+```php
+array(
+    array('name' => 'Michael', 'age' => 19),
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22)
+);
+```
+
+# Searching multidimensional arrays
+
+You can search multidimensional arrays in PHP using the `array_search()` function. This function allows you to search for a specific value within a multidimensional array and return the corresponding key.
+
+## Syntax
+
+```php
+array_search($value, $array);
+```
+
+In this snippet, `$value` represents the value to search for, and `$array` represents the array to search within.
+
+## Example
+
+Suppose we have the following multidimensional array representing a 2-dimensional grid of students:
+
+```php
+$students = array(
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22),
+    array('name' => 'Michael', 'age' => 19)
+);
+```
+
+To search the `$students` array for the name "Stacy", we can use the `array_search()` function like this:
+
+```php
+array_search('Stacy', $students);
+```
+
+This function will return the key of the element containing the value "Stacy", which is 1. This is because the element containing the value "Stacy" is the second element in the array, and arrays are zero-indexed.
+
+# Merging multidimensional arrays
+
+You can merge multidimensional arrays in PHP using the `array_merge()` function. This function allows you to merge multiple arrays into a single array.
+
+## Syntax
+
+```php
+array_merge($array1, $array2, ...);
+```
+
+In this snippet, `$array1` represents the first array to merge, `$array2` represents the second array to merge, and so on.
+
+## Example
+
+Suppose we have the following multidimensional arrays representing a 2-dimensional grid of students:
+
+```php
+$students1 = array(
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22),
+    array('name' => 'Michael', 'age' => 19)
+);
+
+$students2 = array(
+    array('name' => 'John', 'age' => 21),
+    array('name' => 'Sarah', 'age' => 20),
+    array('name' => 'David', 'age' => 18)
+);
+```
+
+To merge the `$students1` and `$students2` arrays into a single array, we can use the `array_merge()` function like this:
+
+```php
+array_merge($students1, $students2);
+```
+
+This function will merge the `$students1` and `$students2` arrays into a single array, resulting in the following array:
+
+```php
+array(
+    array('name' => 'Chad', 'age' => 20),
+    array('name' => 'Stacy', 'age' => 22),
+    array('name' => 'Michael', 'age' => 19),
+    array('name' => 'John', 'age' => 21),
+    array('name' => 'Sarah', 'age' => 20),
+    array('name' => 'David', 'age' => 18)
+);
+```
