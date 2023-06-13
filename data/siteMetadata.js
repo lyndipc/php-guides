@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'PHP Guides',
   author: 'Lyndi Castrejon',
   headerTitle: 'PHP Guides',
-  description: 'Tips and guides for PHP developers',
+  description: 'Unleash the power of PHP with step-by-step tutorials and technical deep-dives.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://php-guides.vercel.app',
