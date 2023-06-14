@@ -1,0 +1,116 @@
+---
+title: How Does array_filter() Work?
+date: '2023-04-25'
+tags: ['arrays', 'searching', 'strings']
+draft: false
+summary: ''
+---
+
+## How Does the `array_filter()` Function Work in PHP?
+
+The `array_filter()` function filters the elements of an array using a callback function. The callback function is applied to each element of the array and returns `true` or `false`. If the callback function returns `true`, the current value from the array is returned into the result array with its original key pair.
+
+## Syntax
+
+```php
+array_filter(array, callback, flag)
+```
+
+The array parameter is the input array that you want to filter. The `$callback` parameter is the callback function that determines which elements should be returned. The `$flag` parameter is an optional parameter that determines what arguments are sent to the callback function.
+
+## Example
+
+```php
+<?php
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+$evenNumbers = array_filter($numbers, function ($number) {
+    return $number % 2 === 0;
+});
+
+print_r($evenNumbers);
+```
+
+**Note:** The callback function is an anonymous function. You can also use a named function.
+
+Output:
+
+```php
+Array
+(
+    [1] => 2
+    [3] => 4
+    [5] => 6
+    [7] => 8
+    [9] => 10
+)
+```
+
+Remember that `array_filter()` creates a new array with elements that pass the filtering condition. The original array remains unchanged.
+
+## Using the flag parameter
+
+The flag parameter determines what arguments are sent to the callback function. The default value of the flag parameter is `0` which means that the callback function receives the value of the current element. Let's see how the flag parameter works.
+
+### ARRAY_FILTER_USE_KEY
+
+The `ARRAY_FILTER_USE_KEY` flag tells the `array_filter()` function to pass the key of the current element to the callback function instead of the value.
+
+```php
+<?php
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function sortEvenNumbers($key) {
+    return $key % 2 === 0;
+}
+
+$evenNumbers = array_filter($numbers, sortEvenNumbers, ARRAY_FILTER_USE_KEY);
+
+print_r($evenNumbers);
+```
+
+**Note:** The callback function is a named function. You can also use an anonymous function.
+
+Output:
+
+```php
+Array
+(
+    [0] => 1
+    [2] => 3
+    [4] => 5
+    [6] => 7
+    [8] => 9
+)
+```
+
+### ARRAY_FILTER_USE_BOTH
+
+The `ARRAY_FILTER_USE_BOTH` flag tells the `array_filter()` function to pass both the key and the value of the current element to the callback function.
+
+```php
+<?php
+
+$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function sortEvenNumbers($value, $key) {
+    return $key % 2 === 0;
+}
+
+$evenNumbers = array_filter($numbers, sortEvenNumbers, ARRAY_FILTER_USE_BOTH);
+
+print_r($evenNumbers);
+```
+
+Output:
+
+```php
+Array
+(
+    [1] => 2
+    [3] => 4
+    [5] => 6
+    [7] => 8
+    [9] => 10
+)
+```
