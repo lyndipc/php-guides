@@ -1,0 +1,113 @@
+---
+title: What is an Associative Array?
+date: '2023-04-26'
+tags: ['arrays', 'sorting', 'data structures']
+draft: false
+summary: 'A short guide on working with associative arrays in PHP.'
+---
+
+## What is an Associative Array?
+
+An associative array is a data structure that stores key-value pairs. The keys are used to identify the values. The keys can be strings or integers. The values can be any data type, including strings, integers, booleans, arrays, and objects.
+
+## Creating an Associative Array
+
+Associative arrays can be created using the `array()` function or the `[]` syntax. You can use the `=>` operator to assign values to keys.
+
+````php
+
+```php
+$person = array(
+    'name' => 'John Doe',
+    'age' => 30,
+    'location' => 'New York'
+);
+
+// or
+
+$person = [
+    'name' => 'John Doe',
+    'age' => 30,
+    'location' => 'New York'
+];
+````
+
+## Accessing Values
+
+You can access values using the `[]` syntax. You can also use the `isset()` function to check if a key exists in an array.
+
+```php
+$person = [
+    'name' => 'John Doe',
+    'age' => 30,
+    'location' => 'New York'
+];
+
+echo $person['name']; // John Doe
+
+if (isset($person['age'])) {
+    echo $person['age']; // 30
+}
+```
+
+## Adding Values
+
+You can add values to an associative array using the `[]` syntax.
+
+```php
+$student['name'] = 'John Doe';
+$student['age'] = 30;
+$student['location'] = 'New York';
+```
+
+## Removing Values
+
+You can remove values from an associative array using the `unset()` function.
+
+```php
+unset($student['age']);
+```
+
+## Looping Through an Associative Array
+
+You can loop through an associative array using the `foreach` loop.
+
+```php
+$person = [
+    'name' => 'John Doe',
+    'age' => 30,
+    'location' => 'New York'
+];
+
+foreach ($person as $key => $value) {
+    echo $key . ': ' . $value . '<br>';
+}
+```
+
+## Sorting an Associative Array
+
+You can sort an associative array using the `ksort()` function. This function sorts the array by key.
+
+```php
+$person = [
+    'name' => 'John Doe',
+    'age' => 30,
+    'location' => 'New York'
+];
+
+ksort($person);
+
+foreach ($person as $key => $value) {
+    echo $key . ': ' . $value . '<br>';
+}
+```
+
+## Conclusion
+
+Associative arrays are a useful data structure for storing key-value pairs. They can be created using the `array()` function or the square bracket `[]` syntax. You can access and add values to an associative array using the `[]` syntax. The values can be removed using the `unset()` function. You can loop through an associative array using the `foreach` loop. You can sort an associative array using the `ksort()` function.
+
+## Resources
+
+- [Official Documentation - PHP Arrays](https://www.php.net/manual/en/language.types.array.php)
+- [Official Documentation - PHP ksort() Function](https://www.php.net/manual/en/function.ksort.php)
+- [w3schools - PHP Associative Arrays](https://www.w3schools.com/php/php_arrays_associative.asp)
