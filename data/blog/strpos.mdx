@@ -1,16 +1,16 @@
 ---
 title: How does PHP's strpos() function work?
-date: '2023-04-18'
+date: '2023-04-19'
 tags: ['php', 'built in functions', 'input validation']
 draft: false
 summary: "In this article, we will learn how to use PHP's strpos() function to validate user input"
 ---
 
-# What is strpos()?
+## What is strpos()?
 
 `strpos()` is a built-in function in PHP. It's used to find the position of the first occurrence of a substring within a string. In other words, `strpos()` accepts two strings as arguments and returns the position of the first string within the second string.
 
-## Understanding strpos() and its arguments
+### Understanding strpos() and its arguments
 
 `strpos()` accepts three arguments:
 
@@ -20,7 +20,7 @@ summary: "In this article, we will learn how to use PHP's strpos() function to v
 
 3. The last parameter is optional. It allows you to set the position where the function should begin searching for the substring. Otherwise, the search will start from the beginning of the string.
 
-## Using strpos() without an offset value
+## Using strpos() Without an Offset Value
 
 In the example below, we are only using two parameters so `strpos()` will begin searching for "car" at the beginning of the string, "racecar".
 
@@ -32,7 +32,7 @@ echo $pos;
 
 The `strpos()` function returns the position where the substring, "car", was found within "racecar" (4). If nothing had been found, then `strpos()` would have returned false.
 
-## Using strpos() with an offset value
+## Using strpos() With an Offset Value
 
 So, setting an offset value (the third parameter) would look something like this:
 
@@ -44,7 +44,7 @@ echo $pos;
 
 Notice how the program returns 3 instead of 1. This is because we've told `strpos()` to begin from index, 2. Skipping over the beginning of the string, "ba" in "banana", and beginning at the "n" caused `strpos()` to miss the (actual) first occurrence of "an". Instead, the first occurrence of "an" that `strpos()` encounters is at index 3.
 
-# How to use strpos() to validate user input
+## How to Use strpos() to Validate User input
 
 In the example below, strpos() is being used to validate a user email. If the "@" is not present in the email, then the program will echo "Invalid email address." Otherwise, it will echo "Valid email address."
 
@@ -58,8 +58,13 @@ if (strpos($email, "@") === false) {
 }
 ```
 
-# Conclusion
+## Conclusion
 
 The `strpos()` function in PHP is a tool that can be used for input validation and string manipulation.
 
 Given the right use case, `strpos()` can be a powerful tool. By using it effectively, we can create more robust and secure applications, while reducing the likelihood of bugs and errors in our code.
+
+## Resources
+
+- [Official Documentation - strpos() Function](https://www.php.net/manual/en/function.strpos.php)
+- [w3schools - PHP strpos() Function](https://www.w3schools.com/php/func_string_strpos.asp)
