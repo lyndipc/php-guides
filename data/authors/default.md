@@ -3,14 +3,14 @@ name: Lyndi Castrejon
 avatar: /static/images/avatar.png
 occupation: iOS Developer
 company:
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
+email: lyndic@protonmail.com
+twitter: https://twitter.com/lyndipc
+linkedin: https://www.linkedin.com/in/lyndi
 github: https://github.com/lyndipc
 ---
 
-Lyndi Castrejon is an iOS developer, writer, and casual gamer. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+Lyndi Castrejon is a mobile application developer, writer, and casual gamer. Her research interests include UI/UX design principles, user psychology, and the intersection of technology and storytelling.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+Lyndi is dedicated to crafting intuitive and visually pleasing mobile experiences. She believes that the best apps seamlessly blend functionality with creativity, resulting in delightful interactions.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+When she's not coding, you may catch Lyndi sipping on a flat white in a cozy coffee spot. She also enjoys reading, writing, and playing video games. Lyndi lives in Colorado with her husband and their dog, Pugsley.
