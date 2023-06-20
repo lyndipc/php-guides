@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect } from 'react'
-import Link from 'next/link'
 
 import siteMetadata from '@/data/siteMetadata'
 import NewsletterIcons from '@/components/newsletter-icons'
@@ -78,7 +77,12 @@ const NewsletterPopUp = ({ onClose }) => {
           </div>
           <div className="flex flex-row gap-4">
             <NewsletterIcons kind="privacy" size="6" />
-            <p>Have read and agree to the Privacy Policy</p>
+            <p>
+              Have read and agree to the&nbsp;
+              <a href="https://phpguides.xyz/privacy" className="text-primary-500 hover:underline">
+                Privacy Policy
+              </a>
+            </p>
           </div>
           <h2 className="my-4 text-lg font-semibold capitalize">What you can expect from us:</h2>
           <div className="flex flex-row gap-4">
@@ -125,7 +129,10 @@ const NewsletterPopUp = ({ onClose }) => {
                 type="checkbox"
                 disabled={subscribed}
               />
-              I have read and agree with the&nbsp;<Link href="/privacy">Privacy Policy</Link>
+              I have read and agree with the&nbsp;
+              <a href="/privacy" className="text-primary-500 hover:underline">
+                Privacy Policy
+              </a>
               &nbsp;and consent to share my email with PHP Guides.
             </label>
           </div>
