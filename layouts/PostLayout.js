@@ -60,7 +60,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <div className="h-10 w-10 overflow-auto rounded-full">
                           <Image
                             src={author.avatar}
-                            width="38px"
+                            width="40px"
                             height="47px"
                             alt="avatar"
                             className=""
