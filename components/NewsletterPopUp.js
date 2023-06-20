@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
+import Link from 'next/link'
 
 import siteMetadata from '@/data/siteMetadata'
 import NewsletterIcons from '@/components/newsletter-icons'
@@ -124,8 +125,8 @@ const NewsletterPopUp = ({ onClose }) => {
                 type="checkbox"
                 disabled={subscribed}
               />
-              I have read and agree with the Privacy Policy and consent to share my email with PHP
-              Guides.
+              I have read and agree with the&nbsp;<Link href="/privacy">Privacy Policy</Link>
+              &nbsp;and consent to share my email with PHP Guides.
             </label>
           </div>
           <div className="flex justify-end">
