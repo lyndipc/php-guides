@@ -1,0 +1,225 @@
+---
+title: Sanitizing Data in PHP
+date: '2023-06-07'
+tags: ['sanitizing data', 'user input', 'strings']
+draft: true
+summary: 'Learn how the array_filter() function works in PHP.'
+---
+
+## Sanitizing Data
+
+Sanitizing data is the process of removing unwanted characters from a string, in order to prevent malicious code from being executed. Sanitizing user input is a critical step in building a secure web application. It's imperative to sanitize user input before it's stored in a database or displayed on a web page.
+
+## The filter_var() Function
+
+The `filter_var()` function is used to sanitize data. It takes two arguments. The first argument is the data to be sanitized. The second argument is the type of sanitization to be performed.
+
+### Example
+
+The following example shows how to use the `filter_var()` function to sanitize a string.
+
+```php
+<?php
+
+// Sanitize a string
+$string = '<script>alert("Hello World!")</script>';
+$sanitized_string = filter_var($string, FILTER_SANITIZE_STRING);
+
+echo $sanitized_string;
+```
+
+### Output
+
+```
+alert("Hello World!")
+```
+
+## The filter_input() Function
+
+The `filter_input()` function is exactly what it sounds like. It can be used to filter user input including file uploads, text, and . The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+### Example
+
+The following example shows how to use the `filter_input()` function to sanitize a string.
+
+```php
+<?php
+
+// Sanitize a string
+$string = '<script>alert("Hello World!")</script>';
+$sanitized_string = filter_input(INPUT_GET, 'string', FILTER_SANITIZE_STRING);
+
+echo $sanitized_string;
+```
+
+### Output
+
+```
+alert("Hello World!")
+```
+
+## Escaping Special Characters
+
+The `htmlspecialchars()` function is used to escape special characters. It takes one argument. The argument is the string to be escaped.
+
+## htmlspecialchars() Function
+
+### Syntax
+
+```php
+htmlspecialchars(string)
+```
+
+### Example
+
+The following example shows how to use the `htmlspecialchars()` function to escape special characters.
+
+```php
+<?php
+
+// Escape special characters
+$string = '<script>alert("Hello World!")</script>';
+$escaped_string = htmlspecialchars($string);
+
+echo $escaped_string;
+```
+
+### Output
+
+```
+&lt;script&gt;alert(&quot;Hello World!&quot;)&lt;/script&gt;
+```
+
+## htmlentities() Function
+
+The `htmlentities()` function is used to escape special characters. It takes one argument. The argument is the string to be escaped.
+
+### Syntax
+
+```php
+htmlentities(string)
+```
+
+### Example
+
+The following example shows how to use the `htmlentities()` function to escape special characters.
+
+```php
+<?php
+
+// Escape special characters
+$string = '<script>alert("Hello World!")</script>';
+$escaped_string = htmlentities($string);
+
+echo $escaped_string;
+```
+
+### Output
+
+```
+&lt;script&gt;alert(&quot;Hello World!&quot;)&lt;/script&gt;
+```
+
+## Handling User Input
+
+The `filter_input()` function is used to handle user input. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+### Syntax
+
+```php
+filter_input(type, variable_name, filter)
+```
+
+### Example
+
+The following example shows how to use the `filter_input()` function to handle user input.
+
+```php
+<?php
+
+// Handle user input
+$string = filter_input(INPUT_GET, 'string', FILTER_SANITIZE_STRING);
+
+echo $string;
+```
+
+### Output
+
+```
+Hello World!
+```
+
+## Handling File Uploads
+
+The `filter_input()` function is used to handle file uploads. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+### Example
+
+The following example shows how to use the `filter_input()` function to handle file uploads.
+
+```php
+<?php
+
+// Handle file uploads
+$file = filter_input(INPUT_GET, 'file', FILTER_SANITIZE_STRING);
+
+echo $file;
+```
+
+### Output
+
+```
+Hello World!
+```
+
+## Database Queries
+
+The `filter_input()` function is used to handle database queries. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+### Example
+
+The following example shows how to use the `filter_input()` function to handle database queries.
+
+```php
+<?php
+
+// Handle database queries
+$query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
+
+echo $query;
+```
+
+### Output
+
+```
+Hello World!
+```
+
+## Handling Email Addresses
+
+The `filter_input()` function is used to handle email addresses. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+### Example
+
+The following example shows how to use the `filter_input()` function to handle email addresses.
+
+```php
+<?php
+
+// Handle email addresses
+$email = filter_input(INPUT_GET, 'email', FILTER_SANITIZE_STRING);
+
+echo $email;
+```
+
+### Output
+
+```
+Hello World!
+```
+
+## Handling URLs
+
+The `filter_input()` function is used to handle URLs. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+## PHP Security Advisories Checker
