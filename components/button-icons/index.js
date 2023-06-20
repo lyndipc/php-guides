@@ -17,9 +17,7 @@ const Icon = ({ kind, href, size = 8 }) => {
       href={href}
     >
       <span className="sr-only">{kind}</span>
-      <IconSvg
-        className={`fill-current text-black hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
-      />
+      <IconSvg className={`fill-current text-gray-200 h-${size} w-${size}`} />
     </a>
   )
 }
