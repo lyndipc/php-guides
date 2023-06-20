@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import NewsletterPopUp from '@/components/NewsletterPopUp'
-import NewsletterForm from '@/components/NewsletterForm'
+import Icon from '@/components/icons'
 
 const NewsletterPopUpButton = ({ title = 'Subscribe to the newsletter' }) => {
   const [isPopUpOpen, setPopUpOpen] = useState(false)
@@ -16,12 +16,11 @@ const NewsletterPopUpButton = ({ title = 'Subscribe to the newsletter' }) => {
   return (
     <div>
       <button
-        className="rounded-md bg-primary-500 px-4 py-2 font-medium text-white hover:bg-primary-600 dark:hover:bg-primary-400"
+        className="flex flex-row items-center justify-end rounded-md bg-primary-500 px-4 py-2  font-medium text-white hover:bg-primary-600 dark:hover:bg-primary-400"
         onClick={openPopUp}
       >
-        Subscribe
+        Subscribe &nbsp; <Icon kind="envelope" size="6" />
       </button>
-
       {isPopUpOpen ? <NewsletterPopUp onClose={closePopUp} /> : null}
     </div>
   )
