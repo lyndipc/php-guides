@@ -5,7 +5,6 @@ occupation: iOS Developer
 company:
 email: lyndic@protonmail.com
 twitter: https://twitter.com/lyndipc
-linkedin: https://www.linkedin.com/in/lyndi
 github: https://github.com/lyndipc
 ---
 
