@@ -79,7 +79,10 @@ const NewsletterPopUp = ({ onClose }) => {
             <NewsletterIcons kind="privacy" size="6" />
             <p>
               Have read and agree to the&nbsp;
-              <a href="https://phpguides.xyz/privacy" className="text-primary-500 hover:underline">
+              <a
+                href="https://phpguides.xyz/privacy"
+                className="text-primary-700 hover:underline dark:text-primary-300"
+              >
                 Privacy Policy
               </a>
             </p>
@@ -130,7 +133,7 @@ const NewsletterPopUp = ({ onClose }) => {
                 disabled={subscribed}
               />
               I have read and agree with the&nbsp;
-              <a href="/privacy" className="text-primary-500 hover:underline">
+              <a href="/privacy" className="text-primary-700 hover:underline dark:text-primary-300">
                 Privacy Policy
               </a>
               &nbsp;and consent to share my email with PHP Guides.
