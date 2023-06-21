@@ -146,7 +146,7 @@ const NewsletterPopUp = ({ onClose }) => {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-primary-500 px-4 py-2 text-slate-50 hover:bg-primary-700 focus:outline-none"
+              className="rounded-md bg-primary-500 px-4 py-2 text-slate-50 hover:bg-primary-600 focus:outline-none dark:hover:bg-primary-400"
             >
               Subscribe
             </button>
