@@ -2,21 +2,25 @@ import { useRef, useState, useEffect } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
 import NewsletterIcons from '@/components/newsletter-icons'
+import { useToast } from '@/hooks/ToastContext'
 
 const NewsletterPopUp = ({ onClose }) => {
   const email = useRef(null)
   const gdprConsent = useRef(null)
   const popUpRef = useRef(null)
+
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
   const [subscribed, setSubscribed] = useState(false)
+
+  const { showToast } = useToast()
 
   const subscribe = async (e) => {
     e.preventDefault()
 
     if (gdprConsent.current.checked === false) {
       setError(true)
-      setMessage('You need to agree to our Privacy Policy and GDPR regulations to subscribe.')
+      setMessage('You need to agree to our Privacy Policy to subscribe.')
       return
     }
 
@@ -34,6 +38,7 @@ const NewsletterPopUp = ({ onClose }) => {
     if (error) {
       setError(true)
       setMessage(`${error}`)
+      showToast(`${error}`)
       return
     }
 
@@ -42,6 +47,7 @@ const NewsletterPopUp = ({ onClose }) => {
     setSubscribed(true)
 
     onClose()
+    showToast('Check your email to confirm your subscription. ✅')
   }
 
   const handleClickOutside = (e) => {
