@@ -23,7 +23,6 @@ const NewsletterPopUp = ({ onClose }) => {
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
       body: JSON.stringify({
         email: email.current.value,
-        consent: gdprConsent.current.checked,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -34,14 +33,13 @@ const NewsletterPopUp = ({ onClose }) => {
     const { error } = await res.json()
     if (error) {
       setError(true)
-      setMessage('Your e-mail address is invalid or you are already subscribed!')
+      setMessage(`${error}`)
       return
     }
 
     email.current.value = ''
     setError(false)
     setSubscribed(true)
-    setMessage('Successfully! 🎉 You are now subscribed.')
 
     onClose()
   }
