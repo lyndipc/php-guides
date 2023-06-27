@@ -125,6 +125,10 @@ const NewsletterPopUp = ({ onClose }) => {
               disabled={subscribed}
             />
           </div>
+          <div className="hidden">
+            <label htmlFor="phone-number">Phone number:</label>
+            <input type="text" />
+          </div>
           <div className="mb-4">
             <label htmlFor="gdpr-consent" className="flex items-center">
               <input
