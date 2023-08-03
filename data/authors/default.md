@@ -4,7 +4,7 @@ avatar: /static/images/avatar.png
 occupation: iOS Developer
 company:
 email: lyndic@protonmail.com
-twitter: https://twitter.com/lyndipc
+threads: https://threads.net/lyndipc_
 github: https://github.com/lyndipc
 ---
 

@@ -12,6 +12,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'lyndi@swiftguides.xyz',
   github: 'https://github.com/lyndipc',
+  threads: 'https://threads.net/@lyndipc_',
   twitter: 'https://twitter.com/lyndipc',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
