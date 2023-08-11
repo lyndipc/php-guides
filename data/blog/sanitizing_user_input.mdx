@@ -6,17 +6,23 @@ draft: true
 summary: 'Learn how the array_filter() function works in PHP.'
 ---
 
+## Overview
+
+<TOCInline toc={props.toc} exclude="Overview" heading={(2, 3)}></TOCInline>
+
 ## Sanitizing Data
 
-Sanitizing data is the process of removing unwanted characters from a string, in order to prevent malicious code from being executed. Sanitizing user input is a critical step in building a secure web application. It's imperative to sanitize user input before it's stored in a database or displayed on a web page.
+Sanitizing data is the process of removing unwanted characters from a string, in order to prevent malicious code from being executed. Sanitizing user input is a critical step in building a secure web application. It's imperative to sanitize user input before it's stored in a database or displayed on a web page. Thankfully, PHP has a few built-in functions that can assist us in with input sanitization.
 
 ## The filter_var() Function
 
-The `filter_var()` function is used to sanitize data. It takes two arguments. The first argument is the data to be sanitized. The second argument is the type of sanitization to be performed.
+https://stackoverflow.com/questions/40269990/when-is-filter-input-used-versus-filter-var
+
+The `filter_var()` function is used to sanitize data. It takes two arguments. The first argument is the data to be sanitized. The second argument is the type of operation to be performed on the input.
 
 ### Example
 
-The following example shows how to use the `filter_var()` function to sanitize a string.
+In the example example below, we use the `filter_var()` function to sanitize, "Hello World!". Since we expect the data to be a string, we use the `FILTER_SANITIZE_STRING` constant as our second argument.
 
 ```php
 <?php
@@ -31,12 +37,12 @@ echo $sanitized_string;
 ### Output
 
 ```
-alert("Hello World!")
+Hello World!
 ```
 
 ## The filter_input() Function
 
-The `filter_input()` function is exactly what it sounds like. It can be used to filter user input including file uploads, text, and . The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+The `filter_input()` function is similar to `filter_var()` except that it . It can be used to filter user input including file uploads, text, and . The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
 
 ### Example
 
@@ -151,7 +157,9 @@ Hello World!
 
 ## Handling File Uploads
 
-The `filter_input()` function is used to handle file uploads. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+https://stackoverflow.com/questions/9489813/php-filter-input-array-for-files
+
+The `filter_var_ar function is used to handle file uploads. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
 
 ### Example
 
@@ -173,6 +181,8 @@ Hello World!
 ```
 
 ## Database Queries
+
+https://stackoverflow.com/questions/7242923/filtering-database-query-based-on-form-input
 
 The `filter_input()` function is used to handle database queries. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
 
@@ -197,7 +207,11 @@ Hello World!
 
 ## Handling Email Addresses
 
-The `filter_input()` function is used to handle email addresses. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+https://www.w3schools.com/php/filter_validate_email.asp
+
+The `filter_var()` function is used to handle email addresses. It takes three arguments. The first argument is the type of sanitization to be performed. The second argument is the name of the variable to be sanitized. The third argument is the type of sanitization to be performed.
+
+`FILTER_SANITIZE_EMAIL` is used to sanitize email addresses.
 
 ### Example
 
